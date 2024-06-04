@@ -1,6 +1,8 @@
 #include "Fixed.hpp"
 
-Fixed:: Fixed(void)
+const int Fixed:: _nb2 = 8;
+
+Fixed:: Fixed(void) : _nb(0)
 {
 	return ;
 }
