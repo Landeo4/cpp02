@@ -54,10 +54,6 @@ int Fixed::toInt(void) const
 {
 	return ((int)this->_nb / (int)(1 << this->_nb2));
 }
-// doit tranformer le nombre a virgule en entier
-
-// je dois aussi ajouter une fonction qui surcharge << qui envois un float de la valeur
-// vers l'ouput (print quoi) passer en parametre
 
 int Fixed::getRawBits(void) const
 {
@@ -67,6 +63,110 @@ int Fixed::getRawBits(void) const
 void Fixed::setRawBits(int const raw)
 {
 	this->_nb = raw;
+}
+
+Fixed &Fixed::operator>(Fixed const & rhs)
+{
+	this->_nb > rhs._nb;
+	return (*this);
+}
+
+Fixed &Fixed::operator<(Fixed const & rhs)
+{
+	this->_nb < rhs._nb;
+	return (*this);
+}
+
+Fixed &Fixed::operator>=(Fixed const & rhs)
+{
+	this->_nb >= rhs._nb;
+	return (*this);
+}
+
+Fixed &Fixed::operator<=(Fixed const & rhs)
+{
+	this->_nb <= rhs._nb;
+	return (*this);
+}
+
+Fixed &Fixed::operator==(Fixed const & rhs)
+{
+	this->_nb == rhs._nb;
+	return (*this);
+}
+
+Fixed &Fixed::operator!=(Fixed const & rhs)
+{
+	this->_nb != rhs._nb;
+	return (*this);
+}
+
+Fixed &Fixed::operator+(Fixed const & rhs)
+{
+	this->_nb += rhs._nb;
+	return (*this);
+}
+
+Fixed &Fixed::operator-(Fixed const & rhs)
+{
+	this->_nb - rhs._nb;
+	return (*this);
+}
+
+Fixed &Fixed::operator*(Fixed const & rhs)
+{
+	this->_nb * rhs._nb;
+	return (*this);
+}
+
+Fixed &Fixed::operator/(Fixed const & rhs)
+{
+	this->_nb / rhs._nb;
+	return (*this);
+}
+
+Fixed &Fixed::operator++(int){return *this;}
+
+Fixed &Fixed::operator++(){return *this;}
+
+Fixed &Fixed::operator--(int){return *this;}
+
+Fixed &Fixed::operator--(){return *this;}
+
+Fixed Fixed::min(Fixed const & lhs, Fixed const & rhs)
+{
+	if (lhs.getRawBits() < rhs.getRawBits())
+		return (lhs);
+	else if (lhs.getRawBits() > rhs.getRawBits())
+		return (rhs);
+	return rhs;
+}
+
+Fixed Fixed::min(Fixed & lhs, Fixed & rhs)
+{
+	if (lhs.getRawBits() < rhs.getRawBits())
+		return (lhs);
+	else if (lhs.getRawBits() > rhs.getRawBits())
+		return (rhs);
+	return rhs;
+}
+
+Fixed Fixed::max(Fixed & lhs, Fixed & rhs)
+{
+	if (lhs.getRawBits() < rhs.getRawBits())
+		return (rhs);
+	else if (lhs.getRawBits() > rhs.getRawBits())
+		return (lhs);
+	return rhs;
+}
+
+Fixed &Fixed::max(Fixed const & lhs, Fixed const & rhs)
+{
+	if (lhs.getRawBits() < rhs.getRawBits())
+		return (rhs);
+	else if (lhs.getRawBits() > rhs.getRawBits())
+		return (lhs);
+	return this;
 }
 
 std::ostream & operator<<( std::ostream & o, Fixed const & nb)
