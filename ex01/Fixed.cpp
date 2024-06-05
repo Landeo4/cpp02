@@ -28,24 +28,27 @@ Fixed &Fixed::operator =(const Fixed &b)
 
 Fixed::Fixed(const int &numb)
 {
-	
-	*this = numb;
-}// doit convert a la numb en nb a virgule
+	this->_nb = int (numb * (1 << this->_nb2));
+}
 
+// doit convert a la numb en nb a virgule
+// regarder les video pour s'aider
 Fixed::Fixed(const float &numb)
 {
-	*this = numb;
+	this->_nb = float (numb * (1 << this->_nb2));
 }
 
-void toFloat(void)
+float Fixed::toFloat(void) const
 {
-	*this = ;
+	return ((float)this->_nb / (float)(1 << this->_nb2));
 }
 
-int toInt(void)
+int Fixed::toInt(void) const
 {
-
+	return ((int)this->_nb / (int)(1 << this->_nb2));
 }
+// doit tranformer le nombre a virgule en entier
+
 // je dois aussi ajouter une fonction qui surcharge << qui envois un float de la valeur
 // vers l'ouput (print quoi) passer en parametre
 
@@ -65,5 +68,9 @@ std::ostream & operator<<( std::ostream & o, Fixed const & nb)
 	return o;
 }
 
+// potentiellement garder int32_t
+// e = (int64_t(a) * int64_t(b)) >> 16;
 //24 pour entier
 //8 pour fractionnaire
+// la moitier des bits du int 4 sup a virgule 4 autre pour le reste
+// 4.78 -> 4 = 4 bits et 78 4 dernier bits -> 8bits int

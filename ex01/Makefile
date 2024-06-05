@@ -1,4 +1,4 @@
-NAME	=	MyFirstClass
+NAME	=	FixedPoint
 
 SRCS	=	main.cpp \
 			Fixed.cpp \

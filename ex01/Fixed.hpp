@@ -22,6 +22,6 @@ class Fixed
 	static const int _nb2;
 };
 
-std::ostream & operator<<(std::ostream & o, Fixed const & nb)
+std::ostream & operator<<(std::ostream & o, Fixed const & nb);
 
 #endif
