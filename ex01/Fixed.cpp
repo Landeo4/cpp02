@@ -4,21 +4,25 @@ const int Fixed:: _nb2 = 8;
 
 Fixed:: Fixed(void) : _nb(0)
 {
+	std::cout << "default constructor called" << std::endl;
 	return ;
 }
 
 Fixed:: ~Fixed(void)
 {
+	std::cout << "destructor called" << std::endl;
 	return ;
 }
 
 Fixed:: Fixed(const Fixed &nb)
 {
+	std::cout << "copy constructor called" << std::endl;
 	*this = nb;
 }
 
 Fixed &Fixed::operator =(const Fixed &b)
 {
+	std::cout << "copy assignement called" << std::endl;
 	if (this != &b)
 	{
 		this->_nb = b.getRawBits();
@@ -28,14 +32,17 @@ Fixed &Fixed::operator =(const Fixed &b)
 
 Fixed::Fixed(const int &numb)
 {
-	this->_nb = int (numb * (1 << this->_nb2));
+	std::cout << "int constructor called" << std::endl;
+	this->_nb = (int)(numb << this->_nb2);
 }
 
 // doit convert a la numb en nb a virgule
 // regarder les video pour s'aider
+
 Fixed::Fixed(const float &numb)
 {
-	this->_nb = float (numb * (1 << this->_nb2));
+	std::cout << "float constructor called" << std::endl;
+	this->_nb = float(numb * (1 << this->_nb2));
 }
 
 float Fixed::toFloat(void) const
@@ -64,9 +71,12 @@ void Fixed::setRawBits(int const raw)
 
 std::ostream & operator<<( std::ostream & o, Fixed const & nb)
 {
-	o << nb.getRawBits();
+	o << nb.toFloat();
 	return o;
 }
+
+//pour BSP utiliser la methode Vectoriel
+// il y a deux Vecteurs qui te dise avec des rotations un point
 
 // potentiellement garder int32_t
 // e = (int64_t(a) * int64_t(b)) >> 16;
