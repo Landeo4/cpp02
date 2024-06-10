@@ -10,7 +10,7 @@ class Fixed
 	public:
 	Fixed(void);
 	Fixed(const Fixed &nb);
-	Fixed &operator=(const Fixed &b);
+	const Fixed &operator=(const Fixed &b);
 	Fixed(const int &numb);
 	Fixed(const float &numb);
 	bool operator>(Fixed const & rhs) const;

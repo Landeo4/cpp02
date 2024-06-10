@@ -20,7 +20,7 @@ Fixed:: Fixed(const Fixed &nb)
 	*this = nb;
 }
 
-Fixed &Fixed::operator =(const Fixed &b)
+const Fixed &Fixed::operator =(const Fixed &b)
 {
 	std::cout << "copy assignement called" << std::endl;
 	if (this != &b)

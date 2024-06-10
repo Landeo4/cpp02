@@ -1,10 +1,11 @@
 #include "Point.hpp"
-
+#include "Fixed.hpp"
 
 bool bsp(Point const a, Point const b, Point const c, Point const point)
 {
 
 }
+
 // a b c point du triangles
 // point le point a verifier
 //return: true si le point est dans le triangle, sinon faux
@@ -12,7 +13,10 @@ bool bsp(Point const a, Point const b, Point const c, Point const point)
 
 
 
-
+// etapes pour cree un BSP:
+// appliquer algorithme a A
+// appliquer le BSP algorithme a B a gauche et C a droite ou il y a le parent A
+// etc 
 
 
 
