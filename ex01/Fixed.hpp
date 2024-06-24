@@ -3,6 +3,7 @@
 
 #include <string.h>
 #include <iostream>
+#include <cmath>
 
 class Fixed
 {

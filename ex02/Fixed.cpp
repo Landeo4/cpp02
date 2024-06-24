@@ -4,25 +4,21 @@ const int Fixed:: _nb2 = 8;
 
 Fixed:: Fixed(void) : _nb(0)
 {
-	std::cout << "default constructor called" << std::endl;
 	return ;
 }
 
 Fixed:: ~Fixed(void)
 {
-	std::cout << "destructor called" << std::endl;
 	return ;
 }
 
 Fixed:: Fixed(const Fixed &nb)
 {
-	std::cout << "copy constructor called" << std::endl;
 	*this = nb;
 }
 
 Fixed &Fixed::operator =(const Fixed &b)
 {
-	std::cout << "copy assignement called" << std::endl;
 	if (this != &b)
 	{
 		this->_nb = b.getRawBits();
@@ -32,7 +28,6 @@ Fixed &Fixed::operator =(const Fixed &b)
 
 Fixed::Fixed(const int &numb)
 {
-	std::cout << "int constructor called" << std::endl;
 	this->_nb = (int)(numb << this->_nb2);
 }
 
@@ -43,8 +38,6 @@ Fixed::Fixed(const float &numb)
 {
 	// std::cout << "float constructor called" << std::endl;
 	this->_nb = roundf(numb * (float)(1 << this->_nb2));
-	std::cout << "constructeur float " << numb << std::endl;
-	std::cout << "voici le resultat " << this->_nb << std::endl;
 }
 
 float Fixed::toFloat(void) const
@@ -118,9 +111,9 @@ Fixed Fixed::operator/(Fixed const & rhs)
 	return this->_nb / rhs._nb;
 }
 
-Fixed &Fixed::operator++(int){this->_nb++; return *this;} // ++ apres
+Fixed Fixed::operator++(int){Fixed tmp(this->toFloat()); this->_nb++; return tmp;} // ++ avant
 
-Fixed Fixed::operator++(){Fixed tmp(this->toFloat()); this->_nb++; return tmp;} // ++ avant
+Fixed &Fixed::operator++(){this->_nb++; return *this;} // ++ apres
 
 Fixed &Fixed::operator--(int){return *this;}
 

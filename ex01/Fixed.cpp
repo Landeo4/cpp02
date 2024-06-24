@@ -41,19 +41,21 @@ Fixed::Fixed(const int &numb)
 
 Fixed::Fixed(const float &numb)
 {
-	std::cout << "float constructor called" << std::endl;
-	this->_nb = float(numb * (1 << this->_nb2));
+	// std::cout << "float constructor called" << std::endl;
+	this->_nb = roundf(numb * (float)(1 << this->_nb2));
+	std::cout << "constructeur float " << numb << std::endl;
 }
 
 float Fixed::toFloat(void) const
 {
-	return ((float)this->_nb / (float)(1 << this->_nb2));
+	return ((float)(this->_nb / (float)(1 << this->_nb2)));
 }
 
 int Fixed::toInt(void) const
 {
 	return ((int)this->_nb / (int)(1 << this->_nb2));
 }
+
 // doit tranformer le nombre a virgule en entier
 
 // je dois aussi ajouter une fonction qui surcharge << qui envois un float de la valeur
@@ -61,6 +63,7 @@ int Fixed::toInt(void) const
 
 int Fixed::getRawBits(void) const
 {
+	std::cout << "get RawBits called" << std::endl;
 	return this->_nb;
 }
 
