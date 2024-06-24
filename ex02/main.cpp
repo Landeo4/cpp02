@@ -23,13 +23,32 @@ int main()
 	std::cout << a << std::endl;
 	std::cout << a++ << std::endl;
 	std::cout << a << std::endl;
+
 	std::cout << "now minus sign" << std::endl;
 	std::cout << --a << std::endl;
 	std::cout << a << std::endl;
 	std::cout << a-- << std::endl;
 	std::cout << a << std::endl;
-	std::cout << "das" << std::endl;
-	std::cout << b << std::endl;
+
+	Fixed c(10);
+	Fixed d;
+	std::cout << " + - * and /" << std::endl;
+	// c.setRawBits(10);
+	// d.setRawBits(3);
+	std::cout << c << std::endl;
+	// std::cout << c.getRawBits() << std::endl;
+	std::cout << c << " + 3 = " << Fixed(c + 3) << std::endl;
+	std::cout << c << " - 2 = " << Fixed(c - 2) << std::endl;
+	std::cout << c << " * 3 = " << Fixed(c * 3) << std::endl;
+	std::cout << c << " / 2 = " << Fixed(c / 2) << std::endl;
+
+	std::cout << "> < >= <= == !=" << std::endl;
+	std::cout << "10 > 2 = " << Fixed(c > 2) << std::endl;
+	std::cout << "10 < 2 = " << Fixed(c < 2) << std::endl;
+	std::cout << "10 >= 2 = " << Fixed(c >= 2) << std::endl;
+	std::cout << "10 <= 2 = " << Fixed(c <= 2) << std::endl;
+	std::cout << "10 == 2 = " << Fixed(c == 2) << std::endl;
+	std::cout << "10 != 2 = " << Fixed(c != 2) << std::endl;
 	std::cout << Fixed::max( a, b ) << std::endl;
 	return 0;
 }

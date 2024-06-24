@@ -62,52 +62,62 @@ void Fixed::setRawBits(int const raw)
 
 bool Fixed::operator>(Fixed const & rhs) const
 {
+	std::cout << " operator called > ";
 	return (this->_nb > rhs._nb);
 }
 
 bool Fixed::operator<(Fixed const & rhs) const
 {
+	std::cout << " operator called < ";
 	return this->_nb < rhs._nb;
 }
 
 bool Fixed::operator>=(Fixed const & rhs) const
 {
+	std::cout << " operator called >= ";
 	return this->_nb >= rhs._nb;
 }
 
 bool Fixed::operator<=(Fixed const & rhs) const
 {
+	std::cout << " operator called <= ";
 	return (this->_nb <= rhs._nb);
 }
 
 bool Fixed::operator==(Fixed const & rhs) const
 {
+	std::cout << " operator called == ";
 	return (this->_nb == rhs._nb);
 }
 
 bool Fixed::operator!=(Fixed const & rhs) const
 {
+	std::cout << " operator called != ";
 	return (this->_nb != rhs._nb);
 }
 
 Fixed Fixed::operator+(Fixed const & rhs)
 {
-	return this->_nb += rhs._nb;
+	std::cout << " operator called + ";
+	return this->toInt() + rhs.toInt();
 }
 
 Fixed Fixed::operator-(Fixed const & rhs)
 {
-	return (this->_nb - rhs._nb);
+	std::cout << " operator called - ";
+	return this->toInt() - rhs.toInt();
 }
 
 Fixed Fixed::operator*(Fixed const & rhs)
 {
+	std::cout << " operator called * ";
 	Fixed tmp(this->toFloat() * rhs.toFloat());
 	return tmp;
 }
 
 Fixed Fixed::operator/(Fixed const & rhs)
 {
+	std::cout << " operator called / ";
 	return this->_nb / rhs._nb;
 }
 
