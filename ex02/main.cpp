@@ -49,6 +49,16 @@ int main()
 	std::cout << "10 <= 2 = " << Fixed(c <= 2) << std::endl;
 	std::cout << "10 == 2 = " << Fixed(c == 2) << std::endl;
 	std::cout << "10 != 2 = " << Fixed(c != 2) << std::endl;
-	std::cout << Fixed::max( a, b ) << std::endl;
+
+	std::cout << "min and max" << std::endl;
+
+	Fixed e(5);
+	Fixed i(2);
+	Fixed j (Fixed( 5.05f ));
+	Fixed u (Fixed( 2.05f ));
+	std::cout << Fixed::max( e, i ) << std::endl;
+	std::cout << Fixed::max( j, u ) << std::endl;
+	std::cout << Fixed::min( e, i ) << std::endl;
+	std::cout << Fixed::min( j, u ) << std::endl;
 	return 0;
 }
