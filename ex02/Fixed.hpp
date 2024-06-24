@@ -25,8 +25,8 @@ class Fixed
 	Fixed operator/(Fixed const & rhs);
 	Fixed operator++(int);
 	Fixed &operator++();
-	Fixed &operator--(int);
-	Fixed operator--();
+	Fixed operator--(int);
+	Fixed &operator--();
 	~Fixed(void);
 	static Fixed min(Fixed const & lhs, Fixed const & rhs);
 	static Fixed min(Fixed & lhs, Fixed & rhs);

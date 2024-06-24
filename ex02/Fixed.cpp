@@ -115,9 +115,9 @@ Fixed Fixed::operator++(int){Fixed tmp(this->toFloat()); this->_nb++; return tmp
 
 Fixed &Fixed::operator++(){this->_nb++; return *this;} // ++ apres
 
-Fixed &Fixed::operator--(int){return *this;}
+Fixed Fixed::operator--(int){Fixed tmp(this->toFloat()); this->_nb--; return tmp;} // -- avant
 
-Fixed Fixed::operator--(){return *this;}
+Fixed &Fixed::operator--(){this->_nb--; return *this;} // ++ apres
 
 Fixed Fixed::min(Fixed const & lhs, Fixed const & rhs)
 {
